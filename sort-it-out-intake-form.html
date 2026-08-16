@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>sort it out — client intake form</title>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sort it out, client intake form</title>
 <style>
   :root {
     --pink: #ed87b5;
@@ -27,7 +25,6 @@
   .brand {
     font-size: 11px;
     letter-spacing: 0.12em;
-    text-transform: uppercase;
     color: var(--pink);
     margin-bottom: 0.35rem;
   }
@@ -63,6 +60,13 @@
     color: #666;
     margin-bottom: 0.35rem;
   }
+  .name-email-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .name-email-row .field { flex: 1; margin-bottom: 0; }
+  .hidden { display: none !important; }
   input[type="text"],
   input[type="email"],
   input[type="tel"],
@@ -167,236 +171,59 @@
 <body>
 
 <div class="form-header">
-  <div class="brand">sort it out</div>
-  <h1>Client intake form</h1>
+  <div class="brand">sorting, elevated.</div>
+  <h1>IT'S TIME TO SORT IT OUT</h1>
+  <p style="font-size: 14px; color: #666; margin-top: 0.5rem;">This form isn't required, but it's helpful.</p>
 </div>
 
 <form id="intake-form" action="https://formspree.io/f/mykvnpen" method="POST">
 
   <!-- hidden fields to capture checkbox/radio values -->
-  <input type="hidden" name="spaces" id="hidden-spaces" />
-  <input type="hidden" name="priorities" id="hidden-priorities" />
-  <input type="hidden" name="service_level" id="hidden-service" />
-  <input type="hidden" name="products" id="hidden-products" />
-  <input type="hidden" name="budget_approach" id="hidden-budget" />
-  <input type="hidden" name="timeline" id="hidden-timeline" />
+  <input type="hidden" name="spaces" id="hidden-spaces">
+  <input type="hidden" name="priorities" id="hidden-priorities">
+  <input type="hidden" name="service_level" id="hidden-service">
+  <input type="hidden" name="products" id="hidden-products">
+  <input type="hidden" name="budget_approach" id="hidden-budget">
+  <input type="hidden" name="timeline" id="hidden-timeline">
 
-  <div class="section">
-    <div class="section-label">01</div>
-    <div class="section-title">What spaces are you looking to organize?</div>
-    <div class="check-group">
-      <label class="check-row" onclick="toggleCheck(this, 'spaces')">
-        <div class="custom-box"><span class="check-mark">✓</span></div>
-        Kitchen / Pantry
-      </label>
-      <label class="check-row" onclick="toggleCheck(this, 'spaces')">
-        <div class="custom-box"><span class="check-mark">✓</span></div>
-        Closet
-      </label>
-      <label class="check-row" onclick="toggleCheck(this, 'spaces')">
-        <div class="custom-box"><span class="check-mark">✓</span></div>
-        Garage
-      </label>
-      <label class="check-row" onclick="toggleCheck(this, 'spaces')">
-        <div class="custom-box"><span class="check-mark">✓</span></div>
-        Office
-      </label>
-      <label class="check-row" onclick="toggleCheck(this, 'spaces')">
-        <div class="custom-box"><span class="check-mark">✓</span></div>
-        Whole home
-      </label>
-      <label class="check-row" onclick="toggleCheck(this, 'spaces'); toggleOther('other-space-input', this)">
-        <div class="custom-box"><span class="check-mark">✓</span></div>
-        Other
-      </label>
-      <div class="other-input" id="other-space-input">
-        <input type="text" name="spaces_other" placeholder="Please describe..." />
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-label">02</div>
-    <div class="section-title">What's currently not working in your space?</div>
-    <div class="field">
-      <textarea name="current_challenges" placeholder="Share as much detail as you'd like..."></textarea>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-label">03</div>
-    <div class="section-title">What matters most to you?</div>
-    <div class="radio-group">
-      <label class="radio-row" onclick="selectRadio(this, 'priorities', 'Functionality — easy to maintain')">
-        <div class="custom-circle"></div>
-        Functionality — easy to maintain
-      </label>
-      <label class="radio-row" onclick="selectRadio(this, 'priorities', 'Aesthetic — clean, cohesive look')">
-        <div class="custom-circle"></div>
-        Aesthetic — clean, cohesive look
-      </label>
-      <label class="radio-row" onclick="selectRadio(this, 'priorities', 'Both equally')">
-        <div class="custom-circle"></div>
-        Both equally
-      </label>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-label">04</div>
-    <div class="section-title">What level of service are you looking for?</div>
-    <div class="radio-group">
-      <label class="radio-row" onclick="selectRadio(this, 'service', 'A simple reset using mostly what I already have')">
-        <div class="custom-circle"></div>
-        A simple reset using mostly what I already have
-      </label>
-      <label class="radio-row" onclick="selectRadio(this, 'service', 'An organized system with some new products and labeling')">
-        <div class="custom-circle"></div>
-        An organized system with some new products and labeling
-      </label>
-      <label class="radio-row" onclick="selectRadio(this, 'service', 'A fully customized, done-for-me solution tailored to my space')">
-        <div class="custom-circle"></div>
-        A fully customized, done-for-me solution tailored to my space
-      </label>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-label">05</div>
-    <div class="section-title">Are you open to purchasing new products?</div>
-    <div class="radio-group">
-      <label class="radio-row" onclick="selectRadio(this, 'products', 'Prefer to use what I have')">
-        <div class="custom-circle"></div>
-        Prefer to use what I have
-      </label>
-      <label class="radio-row" onclick="selectRadio(this, 'products', 'Open to some additions')">
-        <div class="custom-circle"></div>
-        Open to some additions
-      </label>
-      <label class="radio-row" onclick="selectRadio(this, 'products', 'Open to whatever is recommended')">
-        <div class="custom-circle"></div>
-        Open to whatever is recommended
-      </label>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-label">06</div>
-    <div class="section-title">What best describes your budget approach?</div>
-    <div class="radio-group">
-      <label class="radio-row" onclick="selectRadio(this, 'budget', 'Complete the full project, whatever the scope requires')">
-        <div class="custom-circle"></div>
-        Complete the full project, whatever the scope requires
-      </label>
-      <label class="radio-row" onclick="selectRadio(this, 'budget', 'I have a set budget and would like to work within it')">
-        <div class="custom-circle"></div>
-        I have a set budget and would like to work within it
-      </label>
-      <label class="radio-row" onclick="selectRadio(this, 'budget', 'I\'m not sure yet — I\'d like to discuss')">
-        <div class="custom-circle"></div>
-        I'm not sure yet — I'd like to discuss
-      </label>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-label">07</div>
-    <div class="section-title">When are you hoping to get started?</div>
-    <div class="radio-group">
-      <label class="radio-row" onclick="selectRadio(this, 'timeline', 'ASAP')">
-        <div class="custom-circle"></div>
-        ASAP
-      </label>
-      <label class="radio-row" onclick="selectRadio(this, 'timeline', 'Within 1–2 months')">
-        <div class="custom-circle"></div>
-        Within 1–2 months
-      </label>
-      <label class="radio-row" onclick="selectRadio(this, 'timeline', 'Flexible')">
-        <div class="custom-circle"></div>
-        Flexible
-      </label>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-label">08</div>
-    <div class="section-title">Contact info</div>
+  <div class="name-email-row">
     <div class="field">
       <label>Name</label>
-      <input type="text" name="name" placeholder="Your full name" required />
-    </div>
-    <div class="field">
-      <label>Phone</label>
-      <input type="tel" name="phone" placeholder="(___) ___-____" />
+      <input type="text" name="name" placeholder="Your full name" required="">
     </div>
     <div class="field">
       <label>Email</label>
-      <input type="email" name="email" placeholder="you@email.com" required />
+      <input type="email" name="email" placeholder="you@email.com" required="">
     </div>
   </div>
 
-  <button type="submit" class="submit-btn">Submit</button>
+  <label class="check-row" id="opt-out-row" onclick="toggleOptOut(this)" style="margin-bottom: 1.5rem;">
+    <div class="custom-box"><span class="check-mark">✓</span></div>
+    I don't want to fill out this form, I just want to talk to you!
+  </label>
 
-</form>
+  <button type="submit" class="submit-btn hidden" id="opt-out-submit" style="margin-top: 0.5rem; margin-bottom: 2rem;">Submit</button>
 
-<div class="success-msg" id="success-msg">
-  <div class="success-icon">✦</div>
-  <h2>We received your form!</h2>
-  <p>We'll be in touch soon to discuss your project.</p>
-</div>
+  <input type="hidden" name="service_types" id="hidden-service-types">
 
-<script>
-  var checkedSpaces = [];
+  <div class="section">
+    <div class="section-label" style="font-size: 16px;">Services</div>
+    <div class="section-title">What service(s) do you need?</div>
+    <div class="check-group">
+      <label class="check-row" onclick="toggleServiceType(this, 'Organizing')">
+        <div class="custom-box"><span class="check-mark">✓</span></div>
+        Organizing
+      </label>
+      <label class="check-row" onclick="toggleServiceType(this, 'Inventorying')">
+        <div class="custom-box"><span class="check-mark">✓</span></div>
+        Inventorying
+      </label>
+      <label class="check-row" onclick="toggleServiceType(this, 'Packing & unpacking for a move')">
+        <div class="custom-box"><span class="check-mark">✓</span></div>
+        Packing & unpacking for a move
+      </label>
+    </div>
+  </div>
+```
 
-  function toggleCheck(el, group) {
-    el.classList.toggle('selected');
-    if (group === 'spaces') {
-      var label = el.innerText.trim();
-      if (el.classList.contains('selected')) {
-        checkedSpaces.push(label);
-      } else {
-        checkedSpaces = checkedSpaces.filter(function(s) { return s !== label; });
-      }
-      document.getElementById('hidden-spaces').value = checkedSpaces.join(', ');
-    }
-  }
-
-  function toggleOther(inputId, el) {
-    var inp = document.getElementById(inputId);
-    if (el.classList.contains('selected')) {
-      inp.classList.add('visible');
-    } else {
-      inp.classList.remove('visible');
-    }
-  }
-
-  function selectRadio(el, group, value) {
-    var rows = el.parentElement.querySelectorAll('.radio-row');
-    rows.forEach(function(r) { r.classList.remove('selected'); });
-    el.classList.add('selected');
-    document.getElementById('hidden-' + group).value = value;
-  }
-
-  document.getElementById('intake-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var form = this;
-    var data = new FormData(form);
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    }).then(function(res) {
-      if (res.ok) {
-        form.style.display = 'none';
-        document.getElementById('success-msg').style.display = 'block';
-      } else {
-        alert('Something went wrong — please try again or email us directly.');
-      }
-    }).catch(function() {
-      alert('Something went wrong — please check your connection and try again.');
-    });
-  });
-</script>
-
-</body>
-</html>
+I'll send the rest (Organizing/Inventorying/Moving sections plus the JavaScript) in my next message.
