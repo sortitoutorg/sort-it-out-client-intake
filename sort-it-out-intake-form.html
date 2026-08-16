@@ -224,6 +224,420 @@
       </label>
     </div>
   </div>
-```
 
-I'll send the rest (Organizing/Inventorying/Moving sections plus the JavaScript) in my next message.
+  <div id="organizing-section" class="hidden">
+
+  <div class="section-label" style="margin-bottom: 1rem; font-size: 16px;">Organizing</div>
+
+  <div class="section">
+    <div class="section-label">O1</div>
+    <div class="section-title">What spaces are you looking to organize?</div>
+    <div class="check-group">
+      <label class="check-row" onclick="toggleCheck(this, 'spaces')">
+        <div class="custom-box"><span class="check-mark">✓</span></div>
+        Kitchen / Pantry
+      </label>
+      <label class="check-row" onclick="toggleCheck(this, 'spaces')">
+        <div class="custom-box"><span class="check-mark">✓</span></div>
+        Closet
+      </label>
+      <label class="check-row" onclick="toggleCheck(this, 'spaces')">
+        <div class="custom-box"><span class="check-mark">✓</span></div>
+        Garage
+      </label>
+      <label class="check-row" onclick="toggleCheck(this, 'spaces')">
+        <div class="custom-box"><span class="check-mark">✓</span></div>
+        Office
+      </label>
+      <label class="check-row" onclick="toggleCheck(this, 'spaces')">
+        <div class="custom-box"><span class="check-mark">✓</span></div>
+        Whole home
+      </label>
+      <label class="check-row" onclick="toggleCheck(this, 'spaces'); toggleOther('other-space-input', this)">
+        <div class="custom-box"><span class="check-mark">✓</span></div>
+        Other
+      </label>
+      <div class="other-input" id="other-space-input">
+        <input type="text" name="spaces_other" placeholder="Please describe...">
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">O2</div>
+    <div class="section-title">What's currently NOT working in your space? <span style="font-weight: 400; font-size: 14px;">(e.g. "I can't find things when I need them", "Everything has a home, but it doesn't stay that way")</span></div>
+    <div class="field">
+      <textarea name="current_challenges" placeholder="Share as much detail as you'd like..."></textarea>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">O3</div>
+    <div class="section-title">What matters most to you?</div>
+    <div class="radio-group">
+      <label class="radio-row" onclick="selectRadio(this, 'priorities', 'Functionality: easy to maintain')">
+        <div class="custom-circle"></div>
+        Functionality: easy to maintain
+      </label>
+      <label class="radio-row" onclick="selectRadio(this, 'priorities', 'Aesthetic: clean, cohesive look')">
+        <div class="custom-circle"></div>
+        Aesthetic: clean, cohesive look
+      </label>
+      <label class="radio-row" onclick="selectRadio(this, 'priorities', 'Both equally')">
+        <div class="custom-circle"></div>
+        Both equally
+      </label>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">O4</div>
+    <div class="section-title">What level of service are you looking for?</div>
+    <div class="radio-group">
+      <label class="radio-row" onclick="selectRadio(this, 'service', 'A simple reset using mostly what I already have')">
+        <div class="custom-circle"></div>
+        A simple reset using mostly what I already have
+      </label>
+      <label class="radio-row" onclick="selectRadio(this, 'service', 'An organized system with some new products and labeling')">
+        <div class="custom-circle"></div>
+        An organized system with some new products and labeling
+      </label>
+      <label class="radio-row" onclick="selectRadio(this, 'service', 'A fully customized, done-for-me solution tailored to my space')">
+        <div class="custom-circle"></div>
+        A fully customized, done-for-me solution tailored to my space
+      </label>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">O5</div>
+    <div class="section-title">Are you open to purchasing new products?</div>
+    <div class="radio-group">
+      <label class="radio-row" onclick="selectRadio(this, 'products', 'Prefer to use what I have')">
+        <div class="custom-circle"></div>
+        Prefer to use what I have
+      </label>
+      <label class="radio-row" onclick="selectRadio(this, 'products', 'Open to some additions')">
+        <div class="custom-circle"></div>
+        Open to some additions
+      </label>
+      <label class="radio-row" onclick="selectRadio(this, 'products', 'Open to whatever is recommended')">
+        <div class="custom-circle"></div>
+        Open to whatever is recommended
+      </label>
+    </div>
+  </div>
+
+  </div>
+
+  <div id="inventorying-section" class="hidden">
+
+    <input type="hidden" name="inventory_items" id="hidden-inventory-items">
+    <input type="hidden" name="inventory_purpose" id="hidden-inventory-purpose">
+
+    <div class="section-label" style="margin-bottom: 1rem; font-size: 16px;">Inventorying</div>
+
+    <div class="section">
+      <div class="section-label">I1</div>
+      <div class="section-title">What items do you need inventoried?</div>
+      <div class="check-group">
+        <label class="check-row" onclick="toggleCheck(this, 'inventoryItems')">
+          <div class="custom-box"><span class="check-mark">✓</span></div>
+          Clothing
+        </label>
+        <label class="check-row" onclick="toggleCheck(this, 'inventoryItems')">
+          <div class="custom-box"><span class="check-mark">✓</span></div>
+          Jewelry
+        </label>
+        <label class="check-row" onclick="toggleCheck(this, 'inventoryItems')">
+          <div class="custom-box"><span class="check-mark">✓</span></div>
+          Electronics
+        </label>
+        <label class="check-row" onclick="toggleCheck(this, 'inventoryItems')">
+          <div class="custom-box"><span class="check-mark">✓</span></div>
+          Documents / important papers
+        </label>
+        <label class="check-row" onclick="toggleCheck(this, 'inventoryItems')">
+          <div class="custom-box"><span class="check-mark">✓</span></div>
+          Collectibles
+        </label>
+        <label class="check-row" onclick="toggleCheck(this, 'inventoryItems'); toggleOther('other-inventory-items-input', this)">
+          <div class="custom-box"><span class="check-mark">✓</span></div>
+          Other
+        </label>
+        <div class="other-input" id="other-inventory-items-input">
+          <input type="text" name="inventory_items_other" placeholder="Please describe...">
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">I2</div>
+      <div class="section-title">What is the purpose of this inventory project?</div>
+      <div class="radio-group">
+        <label class="radio-row" onclick="selectRadio(this, 'inventory-purpose', 'Insurance purposes'); document.getElementById('other-inventory-purpose-input').classList.remove('visible')">
+          <div class="custom-circle"></div>
+          Insurance purposes
+        </label>
+        <label class="radio-row" onclick="selectRadio(this, 'inventory-purpose', 'Personal'); document.getElementById('other-inventory-purpose-input').classList.remove('visible')">
+          <div class="custom-circle"></div>
+          Personal
+        </label>
+        <label class="radio-row" onclick="selectRadio(this, 'inventory-purpose', 'Estate planning or probate'); document.getElementById('other-inventory-purpose-input').classList.remove('visible')">
+          <div class="custom-circle"></div>
+          Estate planning or probate
+        </label>
+        <label class="radio-row" onclick="selectRadio(this, 'inventory-purpose', 'Downsizing or moving'); document.getElementById('other-inventory-purpose-input').classList.remove('visible')">
+          <div class="custom-circle"></div>
+          Downsizing or moving (knowing what you have before deciding what to keep)
+        </label>
+        <label class="radio-row" onclick="selectRadio(this, 'inventory-purpose', 'Selling or appraising items'); document.getElementById('other-inventory-purpose-input').classList.remove('visible')">
+          <div class="custom-circle"></div>
+          Selling or appraising items (resale/valuation)
+        </label>
+        <label class="radio-row" onclick="selectRadio(this, 'inventory-purpose', 'Divorce or legal proceedings'); document.getElementById('other-inventory-purpose-input').classList.remove('visible')">
+          <div class="custom-circle"></div>
+          Divorce or legal proceedings
+        </label>
+        <label class="radio-row" onclick="selectRadio(this, 'inventory-purpose', 'Other'); document.getElementById('other-inventory-purpose-input').classList.add('visible')">
+          <div class="custom-circle"></div>
+          Other
+        </label>
+        <div class="other-input" id="other-inventory-purpose-input">
+          <input type="text" name="inventory_purpose_other" placeholder="Please describe...">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="packing-section" class="hidden">
+
+    <input type="hidden" name="packing_help_type" id="hidden-packing-help-type">
+    <input type="hidden" name="packing_move_timing" id="hidden-packing-move-timing">
+    <input type="hidden" name="packing_moving_company" id="hidden-packing-moving-company">
+
+    <div class="section-label" style="margin-bottom: 1rem; font-size: 16px;">Moving</div>
+
+    <div class="section">
+      <div class="section-label">M1</div>
+      <div class="section-title">I need help with:</div>
+      <div class="radio-group">
+        <label class="radio-row" onclick="selectRadio(this, 'packing-help-type', 'Packing')">
+          <div class="custom-circle"></div>
+          Packing
+        </label>
+        <label class="radio-row" onclick="selectRadio(this, 'packing-help-type', 'Unpacking')">
+          <div class="custom-circle"></div>
+          Unpacking
+        </label>
+        <label class="radio-row" onclick="selectRadio(this, 'packing-help-type', 'Both')">
+          <div class="custom-circle"></div>
+          Both
+        </label>
+        <label class="radio-row" onclick="selectRadio(this, 'packing-help-type', 'Unpacking & organizing')">
+          <div class="custom-circle"></div>
+          Unpacking & organizing
+        </label>
+        <label class="radio-row" onclick="selectRadio(this, 'packing-help-type', 'Full concierge moving services')">
+          <div class="custom-circle"></div>
+          Full concierge moving services: we book the movers, pack, oversee the move, unpack and organize all belongings in the new space (you literally do not have to do anything)
+        </label>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">M2</div>
+      <div class="section-title">When is your move?</div>
+      <div class="radio-group">
+        <label class="radio-row" onclick="selectRadio(this, 'packing-move-timing', 'ASAP')">
+          <div class="custom-circle"></div>
+          ASAP
+        </label>
+        <label class="radio-row" onclick="selectRadio(this, 'packing-move-timing', 'Within 1–2 months')">
+          <div class="custom-circle"></div>
+          Within 1–2 months
+        </label>
+        <label class="radio-row" onclick="selectRadio(this, 'packing-move-timing', 'Flexible')">
+          <div class="custom-circle"></div>
+          Flexible
+        </label>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">M3</div>
+      <div class="section-title">Do you have a moving company booked already?</div>
+      <div class="radio-group">
+        <label class="radio-row" onclick="selectRadio(this, 'packing-moving-company', 'Yes'); document.getElementById('moving-company-name-input').classList.add('visible')">
+          <div class="custom-circle"></div>
+          Yes
+        </label>
+        <div class="other-input" id="moving-company-name-input">
+          <input type="text" name="moving_company_name" placeholder="Which company?">
+        </div>
+        <label class="radio-row" onclick="selectRadio(this, 'packing-moving-company', 'No, I need recommendations'); document.getElementById('moving-company-name-input').classList.remove('visible')">
+          <div class="custom-circle"></div>
+          No, I need recommendations
+        </label>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section hidden" id="shared-budget-section">
+    <div class="section-title">What best describes your budget approach?</div>
+    <div class="radio-group">
+      <label class="radio-row" onclick="selectRadio(this, 'budget', 'Complete the full project, whatever the scope requires')">
+        <div class="custom-circle"></div>
+        Complete the full project, whatever the scope requires
+      </label>
+      <label class="radio-row" onclick="selectRadio(this, 'budget', 'I have a set budget and would like to work within it')">
+        <div class="custom-circle"></div>
+        I have a set budget and would like to work within it
+      </label>
+      <label class="radio-row" onclick="selectRadio(this, 'budget', 'I\'m not sure yet, I\'d like to discuss')">
+        <div class="custom-circle"></div>
+        I'm not sure yet, I'd like to discuss
+      </label>
+    </div>
+  </div>
+
+  <div class="section hidden" id="shared-timeline-section">
+    <div class="section-title">When are you hoping to get started?</div>
+    <div class="radio-group">
+      <label class="radio-row" onclick="selectRadio(this, 'timeline', 'ASAP')">
+        <div class="custom-circle"></div>
+        ASAP
+      </label>
+      <label class="radio-row" onclick="selectRadio(this, 'timeline', 'Within 1–2 months')">
+        <div class="custom-circle"></div>
+        Within 1–2 months
+      </label>
+      <label class="radio-row" onclick="selectRadio(this, 'timeline', 'Flexible')">
+        <div class="custom-circle"></div>
+        Flexible
+      </label>
+    </div>
+  </div>
+
+  <div class="section hidden" id="shared-notes-section">
+    <div class="section-title">Anything else you'd like us to know before we chat?</div>
+    <div class="field">
+      <textarea name="additional_notes" placeholder="Share as much detail as you'd like..."></textarea>
+    </div>
+  </div>
+
+  <button type="submit" class="submit-btn hidden" id="main-submit" style="margin-top: 0.5rem;">Submit</button>
+
+</form>
+
+<div class="success-msg" id="success-msg">
+  <div class="success-icon">✦</div>
+  <h2>We received your form!</h2>
+  <p>We'll be in touch soon to discuss your project.</p>
+</div>
+
+<script>
+  var checkedSpaces = [];
+
+  function toggleCheck(el, group) {
+    el.classList.toggle('selected');
+    if (group === 'spaces') {
+      var label = el.innerText.trim();
+      if (el.classList.contains('selected')) {
+        checkedSpaces.push(label);
+      } else {
+        checkedSpaces = checkedSpaces.filter(function(s) { return s !== label; });
+      }
+      document.getElementById('hidden-spaces').value = checkedSpaces.join(', ');
+    }
+  }
+
+  function toggleOther(inputId, el) {
+    var inp = document.getElementById(inputId);
+    if (el.classList.contains('selected')) {
+      inp.classList.add('visible');
+    } else {
+      inp.classList.remove('visible');
+    }
+  }
+
+  function selectRadio(el, group, value) {
+    var rows = el.parentElement.querySelectorAll('.radio-row');
+    rows.forEach(function(r) { r.classList.remove('selected'); });
+    el.classList.add('selected');
+    document.getElementById('hidden-' + group).value = value;
+  }
+
+  function toggleOptOut(el) {
+    el.classList.toggle('selected');
+    var optOutSubmit = document.getElementById('opt-out-submit');
+    if (el.classList.contains('selected')) {
+      optOutSubmit.classList.remove('hidden');
+    } else {
+      optOutSubmit.classList.add('hidden');
+    }
+  }
+
+  var selectedServices = [];
+
+  function toggleServiceType(el, value) {
+    el.classList.toggle('selected');
+    if (el.classList.contains('selected')) {
+      selectedServices.push(value);
+    } else {
+      selectedServices = selectedServices.filter(function(s) { return s !== value; });
+    }
+    document.getElementById('hidden-service-types').value = selectedServices.join(', ');
+
+    var organizingSelected = selectedServices.indexOf('Organizing') !== -1;
+    var inventoryingSelected = selectedServices.indexOf('Inventorying') !== -1;
+    var packingSelected = selectedServices.indexOf('Packing & unpacking for a move') !== -1;
+
+    var organizingSection = document.getElementById('organizing-section');
+    var inventoryingSection = document.getElementById('inventorying-section');
+    var packingSection = document.getElementById('packing-section');
+    var mainSubmit = document.getElementById('main-submit');
+    var sharedNotesSection = document.getElementById('shared-notes-section');
+    var sharedTimelineSection = document.getElementById('shared-timeline-section');
+    var sharedBudgetSection = document.getElementById('shared-budget-section');
+
+    organizingSection.classList.toggle('hidden', !organizingSelected);
+    inventoryingSection.classList.toggle('hidden', !inventoryingSelected);
+    packingSection.classList.toggle('hidden', !packingSelected);
+    sharedTimelineSection.classList.toggle('hidden', !(organizingSelected || inventoryingSelected));
+    sharedBudgetSection.classList.toggle('hidden', !(organizingSelected || inventoryingSelected || packingSelected));
+
+    if (organizingSelected || inventoryingSelected || packingSelected) {
+      mainSubmit.classList.remove('hidden');
+      sharedNotesSection.classList.remove('hidden');
+    } else {
+      mainSubmit.classList.add('hidden');
+      sharedNotesSection.classList.add('hidden');
+    }
+  }
+
+  document.getElementById('intake-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res) {
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again or email us directly.');
+      }
+    }).catch(function() {
+      alert('Something went wrong. Please check your connection and try again.');
+    });
+  });
+</script>
+
+</body></html>
+```
